@@ -58,7 +58,7 @@ module.exports = (config) => {
     ]
   };
 
-  // Also run junit reporter on CircleCI
+    // Also run junit reporter on CircleCI
   if (process.env.CIRCLECI) {
     configuration.reporters.push('junit');
     configuration.junitReporter = {

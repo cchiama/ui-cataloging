@@ -8,6 +8,7 @@ if (environment === 'sandbox') {
 }
 
 module.exports = {
+  // This could be set here or in a .stripesclirc file
   okapi: { url, tenant: 'diku' },
   config: {
     logCategories: 'core,redux,connect,connect-fetch,substitute,path,mpath,mquery,action,event,perm,interface,xhr',
