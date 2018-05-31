@@ -10,7 +10,7 @@
     "license": "Apache-2.0",
     "bugs": {
         "url": "https://issues.folio.org/projects/CATUI",
-        "email": "christian.chiama@atcult.it"
+        "email": "info@atcult.it"
     },
     "engines": {
         "node": ">=6.0.0"
