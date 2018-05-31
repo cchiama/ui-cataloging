@@ -19,6 +19,8 @@
   ],
   "parser": "babel-eslint",
   "rules": {
+    "no-unused-expressions": "off",
+    "func-names": "off",
     "import/no-extraneous-dependencies": ["error", {
       "devDependencies": true
     }],
