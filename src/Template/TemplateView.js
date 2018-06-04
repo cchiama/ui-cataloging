@@ -8,7 +8,6 @@ import PaneMenu from '@folio/stripes-components/lib/PaneMenu';
 import IconButton from '@folio/stripes-components/lib/IconButton';
 import * as C from '../Utils/Constant';
 import css from './styles/TemplateView.css';
-import CatalogingLoader from '../Loader';
 
 class TemplateView extends React.Component {
   static manifest = Object.freeze({
@@ -89,7 +88,6 @@ class TemplateView extends React.Component {
             formatter={formatter}
             visibleColumns={['id', 'name']}
             ariaLabel="TemplateView"
-            isEmptyMessage={message}
             containerRef={ref => {
               this.resultsList = ref;
             }}

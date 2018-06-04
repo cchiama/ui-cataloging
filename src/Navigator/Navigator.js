@@ -10,7 +10,6 @@ import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Accordion } from '@folio/stripes-components/lib/Accordion';
 import NavigatorEmpty from './NavigatorEmpty';
-import { TemplateViewLink } from '../Template/';
 import { LogicalView } from '../LogicalView/';
 
 class Navigator extends React.Component {
