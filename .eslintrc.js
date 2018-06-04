@@ -6,7 +6,8 @@ module.exports = {
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
-      experimentalObjectRestSpread: true
+      experimentalObjectRestSpread: true,
+      experimentalDecorators: true
     }
   },
   extends: ['@folio/eslint-config-stripes'],

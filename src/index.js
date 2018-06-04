@@ -2,8 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
+import Redirect from 'react-router-dom/Redirect';
 import Settings from './Settings';
 import Cataloging from './App/Cataloging';
+import { Route as ApplicationRoute } from './router';
+import { TemplateView } from './Template/';
 
 class CatalogingRouting extends React.Component {
   static propTypes = {
@@ -12,46 +15,26 @@ class CatalogingRouting extends React.Component {
       intl: PropTypes.object.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
-    match: PropTypes.object.isRequired,
+    match: PropTypes.shape({
+      path: PropTypes.string.isRequired
+    }).isRequired,
     showSettings: PropTypes.bool,
   };
 
-
-  constructor(props) {
-    super(props);
-    this.connectedApp = props.stripes.connect(Cataloging);
-  }
-
-  NoMatch() {
-    return (
-      <div>
-        <h2>Uh-oh!</h2>
-        <p>
-          How did you get to <tt>{this.props.location.pathname}</tt>?
-        </p>
-      </div>
-    );
-  }
-
   render() {
-    if (this.props.showSettings) {
-      return <Settings {...this.props} />;
-    }
-    return (
-      <Switch>
-        <Route
-          path={`${this.props.match.path}`}
-          render={() => <this.connectedApp {...this.props} />}
-        />
-        <Route
-          component={() => {
-            this.NoMatch();
-          }}
-        />
-        <div>hhhh</div>
-      </Switch>
+    let { showSettings, match: { path: rootPath } } = this.props;
+    return showSettings ? (
+      <Settings {...this.props} />
+    ) : (
+      <ApplicationRoute path={rootPath} component={Cataloging}>
+        <Switch>
+          <Route path={`${rootPath}/cataloging/templateList`} component={TemplateView} />
+          <Route render={() => (<Redirect to={`${rootPath}`} />)} />
+        </Switch>
+      </ApplicationRoute>
     );
   }
 }
+
 
 export default CatalogingRouting;

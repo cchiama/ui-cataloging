@@ -8,6 +8,26 @@ export default class CatalogingSettings extends React.Component {
       route: 'general',
       label: this.props.stripes.intl.formatMessage({ id: 'ui-cataloging.settings.general' }), // eslint-disable-line react/prop-types
       component: GeneralSettings,
+    },
+    {
+      route: 'general',
+      label: this.props.stripes.intl.formatMessage({ id: 'ui-cataloging.settings.general' }), // eslint-disable-line react/prop-types
+      component: GeneralSettings,
+    },
+    {
+      route: 'general',
+      label: this.props.stripes.intl.formatMessage({ id: 'ui-cataloging.settings.general' }), // eslint-disable-line react/prop-types
+      component: GeneralSettings,
+    },
+    {
+      route: 'general',
+      label: this.props.stripes.intl.formatMessage({ id: 'ui-cataloging.settings.general' }), // eslint-disable-line react/prop-types
+      component: GeneralSettings,
+    },
+    {
+      route: 'general',
+      label: this.props.stripes.intl.formatMessage({ id: 'ui-cataloging.settings.general' }), // eslint-disable-line react/prop-types
+      component: GeneralSettings,
     }
   ];
 

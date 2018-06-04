@@ -22,5 +22,8 @@ module.exports = {
   },
   modules: {
     '@folio/cataloging': {},
+  },
+  aliases: {
+    '@folio/users': '/Users/christian/stripes/ui-users'
   }
 };

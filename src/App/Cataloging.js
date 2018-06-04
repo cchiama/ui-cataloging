@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'; // eslint-disable-line no-unused-vars
 import React from 'react';
+import { connect } from '@folio/stripes-connect';
 import Navigator from '../Navigator';
+import * as C from '../Utils/Constant';
 import css from './Cataloging.css';
 
 class Cataloging extends React.Component {
@@ -13,6 +15,7 @@ class Cataloging extends React.Component {
     }).isRequired,
     resources: PropTypes.shape({ // eslint-disable-line no-unused-vars
     }).isRequired,
+    children: PropTypes.node.isRequired,
     mutator: PropTypes.shape({ // eslint-disable-line no-unused-vars
       initializedFilterConfig: PropTypes.shape({
         replace: PropTypes.func.isRequired,
@@ -42,4 +45,4 @@ class Cataloging extends React.Component {
   }
 }
 
-export default Cataloging;
+export default connect(Cataloging, C.META.MODULE_NAME);

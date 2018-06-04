@@ -4,24 +4,21 @@ import React from 'react';
 import MultiColumnList from '@folio/stripes-components/lib/MultiColumnList';
 import Paneset from '@folio/stripes-components/lib/Paneset';
 import Pane from '@folio/stripes-components/lib/Pane';
-import {
-  ENDPOINT,
-  RESOURCE_TYPE,
-  INITIAL_RESULT_COUNT,
-} from '../constant';
+import * as C from '../Utils/Constant';
+
 
 class TemplateNewMandatory extends React.Component {
     static manifest = Object.freeze({
       query: { initialValue: {} },
-      resultCount: { initialValue: INITIAL_RESULT_COUNT },
+      resultCount: { initialValue: C.INITIAL_RESULT_COUNT },
       records: {
-        type: RESOURCE_TYPE,
-        root: ENDPOINT.BASE_URL,
-        path: ENDPOINT.TEMPLATE_MANDATORY,
+        type: C.RESOURCE_TYPE,
+        root: C.ENDPOINT.BASE_URL,
+        path: C.ENDPOINT.TEMPLATE_MANDATORY,
         headers: { 'x-okapi-tenant': 'tnx' },
         records: 'fields',
         GET: {
-          params: { lang: ENDPOINT.DEFAULT_LANG },
+          params: { lang: C.ENDPOINT.DEFAULT_LANG },
         },
       }
     });

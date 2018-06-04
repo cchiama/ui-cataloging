@@ -6,7 +6,7 @@ import Pane from '@folio/stripes-components/lib/Pane';
 import Paneset from '@folio/stripes-components/lib/Paneset'; // eslint-disable-line import/no-extraneous-dependencies
 import PaneMenu from '@folio/stripes-components/lib/PaneMenu';
 import IconButton from '@folio/stripes-components/lib/IconButton';
-import * as C from '../constant';
+import * as C from '../Utils/Constant';
 import css from './styles/TemplateView.css';
 import CatalogingLoader from '../Loader';
 
@@ -18,7 +18,7 @@ class TemplateView extends React.Component {
       type: C.RESOURCE_TYPE,
       root: C.ENDPOINT.BASE_URL,
       path: C.ENDPOINT.TEMPLATE_URL,
-      headers: { 'x-okapi-tenant': 'tnx' },
+      headers: C.ENDPOINT.HEADER,
       records: C.API_RESULT_JSON_KEY.TEMPLATES,
       GET: {
         params: { lang: 'ita', type: 'B' },
@@ -89,12 +89,12 @@ class TemplateView extends React.Component {
             formatter={formatter}
             visibleColumns={['id', 'name']}
             ariaLabel="TemplateView"
+            isEmptyMessage={message}
             containerRef={ref => {
               this.resultsList = ref;
             }}
             rowFormatter={this.anchoredRowFormatter}
           />
-          <CatalogingLoader />
         </Pane>
       </Paneset>
     );

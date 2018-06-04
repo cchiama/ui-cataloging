@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Select from '@folio/stripes-components/lib/Select';
-import * as C from '../constant';/** utilizziamo C come namespace per tutte le costanti* */
-import css from './LogicalView.css';
+import { connect } from '@folio/stripes-connect';
 import { remapCodeLongDescription } from '../Utils/Mapper';
+import * as C from '../Utils/Constant';
+import css from './LogicalView.css';
+
 
 class LogicalView extends React.Component {
   static manifest = Object.freeze({
@@ -11,10 +13,10 @@ class LogicalView extends React.Component {
       type: C.RESOURCE_TYPE,
       root: C.ENDPOINT.BASE_URL,
       path: C.ENDPOINT.LOGICAL_VIEW_URL,
-      headers: { 'x-okapi-tenant': 'tnx' },
+      headers: C.ENDPOINT.HEADER,
       records: C.API_RESULT_JSON_KEY.LOGICAL_VIEW,
       GET: {
-        params: { lang: 'ita' },
+        params: { lang: C.ENDPOINT.DEFAULT_LANG },
       },
     },
   });
@@ -27,7 +29,7 @@ class LogicalView extends React.Component {
           id={C.LOGICAL_VIEW_SELECT.ID}
           dataOptions={[C.LOGICAL_VIEW_SELECT.EMPTY_VALUE]}
           value={C.LOGICAL_VIEW_SELECT.INITIAL_VALUE}
-          onChange={() => {}}
+          onChange={() => { }}
         />
       </div>;
     const { resources: { views } } = this.props;
@@ -41,7 +43,7 @@ class LogicalView extends React.Component {
           id={C.LOGICAL_VIEW_SELECT.ID}
           dataOptions={(!views.records) ? emptySelect : remapCodeLongDescription(logicalViews)}
           value={C.LOGICAL_VIEW_SELECT.INITIAL_VALUE}
-          onChange={() => {}}
+          onChange={() => { }}
         />
       </div>
     );
@@ -52,4 +54,4 @@ LogicalView.propTypes = {
   resources: PropTypes.object.isRequired
 };
 
-export default LogicalView;
+export default connect(LogicalView, C.META.MODULE_NAME);
