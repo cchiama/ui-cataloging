@@ -1,0 +1,16 @@
+{
+  "name": "ui-marccat",
+  "description": "MARCCat Folio module",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
